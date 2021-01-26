@@ -104,4 +104,15 @@ function duplicates(str) {
 
 let duplicatesRes = duplicates("abcdefgh")
 
-console.log(duplicatesRes)
+// get rid of duplicates without using Set
+
+function unique(array) {
+  let uniqueArray = array.filter((el, index) => {
+    return array.indexOf(el) === index
+  })
+  return uniqueArray
+}
+
+let uniqueRes = unique([1, 2, 2, 3, 3, 3, 5, 6, 6, 6, 6, 6, 8, 8, 8, 9, 11, 12, 13, 14, 15, 15, 17, 9, 9, 9])
+
+console.log(uniqueRes)
