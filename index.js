@@ -72,4 +72,36 @@ function mergeFindMinAndRemove(arr1, arr2) {
 
 let mergeRes = merge([2, 4, 6, 8, 12, 55], [1, 3, 7, 9, 10, 11, 54])
 
-console.log(mergeRes)
+// determine if there are any duplicates in a string
+
+function duplicates(str) {
+  let obj = {}
+  let array = str.split("")
+  for (let i = 0; i < array.length; i++) {
+    if (obj[array[i]]) {
+      obj[array[i]] += 1
+    } else {
+      obj[array[i]] = 1
+    }
+  }
+
+  let flag = 0
+
+  Object.keys(obj).forEach(key => {
+    let value = obj[key]
+    if (value > 1) {
+      flag = 1
+    }
+  })
+
+  if (flag === 1) {
+    return true 
+  } else {
+    return false
+  }
+ 
+}
+
+let duplicatesRes = duplicates("abcdefgh")
+
+console.log(duplicatesRes)
