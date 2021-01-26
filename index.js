@@ -47,6 +47,29 @@ function findMinAndRemove(arr) {
 
 let selectionSortRes = selectionSort([5, 3, 6, 77, 88, 5, 6, 4, 3, 2])
 
-// console.log(selectionSortRes)
+// merging two sorted arrays into one sorted array without having to sort again
 
+function merge(arr1, arr2) {
+  let sorted = []
+  let min
+  while (arr1.length !== 0 && arr2.length !== 0) {
+    min = mergeFindMinAndRemove(arr1, arr2)
+    sorted.push(min)
+  }
+  return sorted.concat(arr1).concat(arr2)
+}
 
+function mergeFindMinAndRemove(arr1, arr2) {
+  let arr1Min = arr1[0]
+  let arr2Min = arr2[0]
+
+  if (arr1Min < arr2Min) {
+    return arr1.shift()
+  } else {
+    return arr2.shift()
+  }
+}
+
+let mergeRes = merge([2, 4, 6, 8, 12, 55], [1, 3, 7, 9, 10, 11, 54])
+
+console.log(mergeRes)
