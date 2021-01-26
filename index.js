@@ -18,6 +18,35 @@ function sumFinder(arr, num) {
   return false
 }
 
-let res = sumFinder([6, 4, 3, 2], 1)
+let sumFinderRes = sumFinder([6, 4, 3, 2], 1)
 
-console.log(res)
+// sorting algorithm (selection sort)
+
+function selectionSort(arr) {
+  let sorted = []
+  let min
+  while (arr.length !== 0) {
+    min = findMinAndRemove(arr)
+    sorted.push(min)
+  }
+  return sorted
+}
+
+function findMinAndRemove(arr) {
+  let min = arr[0]
+  let minIdx = 0
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < min) {
+      min = arr[i]
+      minIdx = i
+    }
+  }
+  arr.splice(minIdx, 1)
+  return min
+}
+
+let selectionSortRes = selectionSort([5, 3, 6, 77, 88, 5, 6, 4, 3, 2])
+
+// console.log(selectionSortRes)
+
+
