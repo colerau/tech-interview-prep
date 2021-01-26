@@ -106,13 +106,25 @@ let duplicatesRes = duplicates("abcdefgh")
 
 // get rid of duplicates without using Set
 
-function unique(array) {
-  let uniqueArray = array.filter((el, index) => {
-    return array.indexOf(el) === index
-  })
-  return uniqueArray
+// function unique(array) {
+//   let uniqueArray = array.filter((el, index) => {
+//     return array.indexOf(el) === index
+//   })
+//   return uniqueArray
+// }
+
+function unique2(arr) {
+  let obj = {}
+  let uarr = []
+  for (let i = 0; i < arr.length; i++) {
+    if (!obj[arr[i]]) {
+      uarr.push(arr[i])
+      obj[arr[i]] = true
+    }
+  }
+  return uarr
 }
 
-let uniqueRes = unique([1, 2, 2, 3, 3, 3, 5, 6, 6, 6, 6, 6, 8, 8, 8, 9, 11, 12, 13, 14, 15, 15, 17, 9, 9, 9])
+let uniqueRes = unique2([1, 2, 2, 3, 3, 3, 5, 6, 6, 6, 6, 6, 8, 8, 8, 9, 11, 12, 13, 14, 15, 15, 17, 9, 9, 9])
 
 console.log(uniqueRes)
