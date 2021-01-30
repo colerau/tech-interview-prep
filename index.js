@@ -127,4 +127,30 @@ function unique2(arr) {
 
 let uniqueRes = unique2([1, 2, 2, 3, 3, 3, 5, 6, 6, 6, 6, 6, 8, 8, 8, 9, 11, 12, 13, 14, 15, 15, 17, 9, 9, 9])
 
-console.log(uniqueRes)
+// console.log(uniqueRes)
+
+
+// Binary Search
+
+// binary search only works on sorted arrays
+function binarySearch(array, target) {
+  let startIndex = 0
+  let endIndex = array.length - 1
+
+  while (startIndex <= endIndex) {
+    let midIndex = Math.floor((startIndex + endIndex) / 2)
+
+    if (target === array[midIndex]) {
+      return true 
+    } else if (target < array[midIndex]) {
+      endIndex = midIndex - 1
+    } else if (target > array[midIndex]) {
+      startIndex = midIndex + 1
+    }
+  }
+  return false
+}
+
+let binarySearchRes = binarySearch([3, 7, 13, 17, 31, 37, 41, 43, 47, 71, 73], 31)
+
+// console.log(binarySearchRes)
